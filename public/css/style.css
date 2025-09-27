@@ -44,6 +44,8 @@ body{
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
+    color: white;
+    font-weight: 700;
 }
 
 .btn-glass:hover{
@@ -55,4 +57,15 @@ body{
     box-shadow: 0 8px 15px rgba(255, 255, 255, 0.15);
 }
 
+.social-icons{
+    font-size: 1.8rem;
+    text-decoration: none;
+    opacity: 0.8;
+    color: white;
+}
+
+footer{
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
 

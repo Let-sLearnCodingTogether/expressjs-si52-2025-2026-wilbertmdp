@@ -1,4 +1,7 @@
 import express from "express"
+import * as publicController from "../controller/publicController.js"
+
+
 
 const web = express.Router()
 
@@ -7,12 +10,8 @@ web.get('/', (req, res) => {
 })
 
 
-web.get('/:username{/:bio}', (req, res) => {
-    const username = req.params.username ?? 'tanpa title'
-    res.render('public-profile', {
-        username : `${username}`,
-        bio : "Bio Wilbert Anderson"
-    })
-})
+// web.get('/:username{/:bio}', publicController.publicProfile)
+
+web.get('/:nama', publicController.nama)
 
 export default web
