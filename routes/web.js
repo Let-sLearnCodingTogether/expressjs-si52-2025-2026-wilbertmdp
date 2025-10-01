@@ -10,8 +10,8 @@ web.get('/', (req, res) => {
 })
 
 
-// web.get('/:username{/:bio}', publicController.publicProfile)
+web.get('/:username', publicController.publicProfile)
 
-web.get('/:nama', publicController.nama)
+web.get('/profile{/:nama}', publicController.nama)
 
 export default web
