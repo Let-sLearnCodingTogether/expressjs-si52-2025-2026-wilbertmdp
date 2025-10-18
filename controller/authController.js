@@ -1,5 +1,7 @@
+import { compare } from "bcrypt";
 import UserModel from "../models/userModel.js";
 import { hash } from "../utils/hashUtil.js"; //ini penting, jangan salah
+import { jwtSignUtil } from "../utils/jwtSignUtil.js";
 
 export const register = async (req, res) => {
     try {
@@ -46,13 +48,13 @@ export const login = async (req, res) => {
         }
         // membandingkan password yang ada di dalam request dgn di database
         // bila berhasil
-        if(user.password == loginData.password){
+        if(compare(loginData.password, user.password)){
             return res.status(200).json({
                 message : "login berhasil",
                 data : {
                     username : user.username,
                     email : user.email,
-                    token : "TOKEN"
+                    token : jwtSignUtil(user) // melakukan sign JWT token
                 }
             })
         }
@@ -64,7 +66,7 @@ export const login = async (req, res) => {
 
     }catch(error){
         res.status(500).json({
-            message : error,
+            message : error.message,
             data : null
         })
     }
