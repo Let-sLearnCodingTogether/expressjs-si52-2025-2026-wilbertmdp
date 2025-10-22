@@ -19,7 +19,7 @@ export const register = async (req, res) => {
 
         res.status(201).json({
             message : "berhasil register, silahkan login",
-            data : null
+            data : registerData
         })
     } catch(e){
         res.status(500).json({
